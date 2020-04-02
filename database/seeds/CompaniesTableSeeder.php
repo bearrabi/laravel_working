@@ -11,6 +11,10 @@ class CompaniesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('users')->insert([
+            'name' => 'kuma',
+            'email' => 'kumasanno@gmail.com',
+            'password' => Hash::make('kumasanno')
+        ]);
     }
 }
