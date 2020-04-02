@@ -12,5 +12,10 @@ class OfficesTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('offices')->insert([
+            'name' => 'kuma',
+            'email' => 'kumasanno@gmail.com',
+            'password' => Hash::make('kumasanno')
+        ]);
     }
 }
