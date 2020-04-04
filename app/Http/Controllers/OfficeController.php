@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Office;
 
 class OfficeController extends Controller
 {
@@ -47,6 +48,8 @@ class OfficeController extends Controller
     public function show($id)
     {
         //
+        $office_name = Office::find(1);
+        return $office_name->name.'です。';
     }
 
     /**
