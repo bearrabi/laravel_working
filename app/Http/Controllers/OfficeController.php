@@ -13,7 +13,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        //
+        return 'indexです';
     }
 
     /**
@@ -24,6 +24,7 @@ class OfficeController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
