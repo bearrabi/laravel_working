@@ -13,20 +13,15 @@
         <tr><th scope="col">事業所名</th><th scope="col">郵便番号</th><th scope="col">所在地</th><th scope="col">電話番号</th><th scope="col">操作</th></tr>
       </thead>
       <tbody>
+      @foreach ($offices as $office)
         <tr>
-          <td>kuma</td>
-          <td>123-4567</td>
-          <td>kuma県</td>
-          <td>0909898989898</td>
-          <td><a class="btn btn-primary" href="#">編集</a><a class="btn btn-danger" href="#">削除</a></td>
+          <td>{{$office->name}}</td>
+          <td>{{$office->post_number}}</td>
+          <td>{{$office->address}}</td>
+          <td>{$office->telnumber}}</td>
+          <td><a class="btn btn-primary" href="#">編集/{{$office->id}}</a><a class="btn btn-danger" href="#">削除/{{$office->id}}</a></td>
         </tr>
-        <tr>
-          <td>usagi</td>
-          <td>789-1234</td>
-          <td>usagi県</td>
-          <td>0909393939393</td>
-          <td><a class="btn btn-primary" href="#">編集</a><a class="btn btn-danger" href="#">削除</a></td>
-        </tr>
+      @endforeach
       </tbody>
     </table>
   </div>
