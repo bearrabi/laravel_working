@@ -14,7 +14,8 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        return 'Office@indexです';
+        // return 'Office@indexです';
+        return view('office.index');
     }
 
     /**
