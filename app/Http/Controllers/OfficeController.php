@@ -72,7 +72,7 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return 'offces@update/'.$request.'/'.$id.'です';
     }
 
     /**
@@ -83,6 +83,6 @@ class OfficeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 'offices@destroy/'.$id.'です';
     }
 }
