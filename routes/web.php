@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::resource('offices','OfficeController')->only([
-    'index','show','create','edit'
-]);
+Route::resource('offices','OfficeController');
+// Route::resource('offices','OfficeController')->only([
+//     'index','show','create','edit'
+// ]);
 
