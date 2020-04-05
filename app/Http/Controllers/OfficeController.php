@@ -36,7 +36,7 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'Office@store'.$request.'です';   
     }
 
     /**
