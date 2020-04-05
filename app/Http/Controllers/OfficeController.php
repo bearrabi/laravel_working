@@ -14,7 +14,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        return 'indexです';
+        return 'Office@indexです';
     }
 
     /**
@@ -24,7 +24,7 @@ class OfficeController extends Controller
      */
     public function create()
     {
-        //
+        return 'Office@cretaeです';
 
     }
 
