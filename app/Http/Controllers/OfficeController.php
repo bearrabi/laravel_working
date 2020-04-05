@@ -60,7 +60,7 @@ class OfficeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'Office@edit/$id です';
     }
 
     /**
