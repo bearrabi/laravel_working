@@ -15,7 +15,8 @@ class OfficeController extends Controller
     public function index()
     {
         // return 'Office@indexです';
-        return view('office.index');
+        $offices = Office::all();
+        return view('office.index', compact('office'));
     }
 
     /**
