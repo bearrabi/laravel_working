@@ -19,6 +19,7 @@ class CreateOfficesTable extends Migration
             $table->string('name');
             $table->string('post_number');
             $table->string('address');
+            $table->string('telnumber');
             $table->timestamps();
         });
     }
