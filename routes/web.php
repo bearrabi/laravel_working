@@ -19,6 +19,6 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('offices','OfficeController')->only([
-    'index','show','create'
+    'index','show','create','edit'
 ]);
 
