@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-  #col1,#col2{  height: 30px;  }
-  #col1{background-color:red; }
-  #col2{background-color:green; }
-</style>
 <div class="container">
   <div class="row">
     <table class="table table-striped">
