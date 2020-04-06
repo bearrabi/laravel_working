@@ -7,6 +7,7 @@
 <div class="container">
   <div class="row">
     <form method="POST" action="{{ route('office.update', ['id' => $office->id]) }}">
+    @csrf
       <div class="form-group">
         <label for="office_name">事業所名</label>
         <input type="text" class="form-control txtbx" name="office_name" id="office_name" value="{{$office->name}}"><br><br>
