@@ -50,8 +50,8 @@ class OfficeController extends Controller
     public function show($id)
     {
         //
-        $office_name = Office::find($id);
-        return $office_name->name.'です。';
+        $office = Office::find($id);
+        return view('office.show', compact('office'));
     }
 
     /**
