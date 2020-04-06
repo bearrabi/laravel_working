@@ -11,7 +11,6 @@
         <label for="office_name">事業所名</label>
         <input type="text" class="form-control txtbx" id="office_name" value="{{$office->name}}"><br><br>
         <label for="office_name">郵便番号</label>
-        <input type="text" class="form-control txtbx" id="office_name" value="{{$office->post_number}}">
         <input type="text" class="form-control txtbx" id="office_name" value="{{$office->post_number}}"><br><br>
         <label for="office_name">所在地</label>
         <input type="text" class="form-control txtbx" id="office_name" value="{{$office->address}}"><br><br>
