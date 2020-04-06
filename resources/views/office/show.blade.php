@@ -20,7 +20,8 @@
     </form>
   </div>
   <div class="row">
-    <a class="btn btn-primary" href="{{ action('OfficeController@update', $office->id)}}">更新</a>
+    <a class="btn btn-primary" href="{{ action('OfficeController@edit', $office->id)}}">編集</a>
+    <a class="btn btn-danger" href="{{ action('OfficeController@destroy', $office->id)}}">削除</a>
   </div>
 </div>
 @endsection
