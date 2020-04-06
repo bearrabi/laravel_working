@@ -14,7 +14,7 @@
           <td>{{$office->post_number}}</td>
           <td>{{$office->address}}</td>
           <td>{{$office->telnumber}}</td>
-          <td><a class="btn btn-primary" href="#">編集/{{$office->id}}</a><a class="btn btn-danger" href="#">削除/{{$office->id}}</a></td>
+          <td><a class="btn btn-primary" href="{{ action('OfficeController@edit', $office->id)}}">編集</a><a class="btn btn-danger" href="{{ action('OfficeController@destroy', $office->id)}}">削除</a></td>
         </tr>
       @endforeach
       </tbody>
