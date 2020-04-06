@@ -83,7 +83,7 @@ class OfficeController extends Controller
         $office->telnumber = $request->input('office_telnumber');
         $office->save();
         
-        return redirect()->action('OfficeController@index');
+        return redirect('office/index');
     }
 
     /**
