@@ -63,7 +63,7 @@ class OfficeController extends Controller
     public function edit($id)
     {
         $office = Office::find($id);
-        return view('office.exit', compact('office'));
+        return view('office.edit', compact('office'));
     }
 
     /**
