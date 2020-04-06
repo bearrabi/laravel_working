@@ -14,7 +14,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        // return 'Office@indexです';
+        //
         $offices = Office::all();
         return view('office.index', compact('offices'));
     }
@@ -75,7 +75,15 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'offces@update/'.$request.'/'.$id.'です';
+        $office = Office::find($id);
+
+        $office->name = $request->input('office_name');
+        $office->post_number = $request->input('office_postnumber');
+        $office->address = $request->input('office_address');
+        $office->telnumber = $request->input('office_telnumber');
+        $office->save();
+        
+        return redirect()->action('OfficeController@index');
     }
 
     /**
