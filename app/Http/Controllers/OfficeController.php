@@ -38,7 +38,14 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Office@store'.$request.'です';   
+        $office = new Office;
+        $office->office_name = $request->input('office_name');
+        $office->office_postnumber = $request->input('office_postnumber');
+        $office->address = $request->input('office_address');
+        $office->telnumber = $request->input('office_telnumber');
+        $office->save();
+
+        return redirect('office/index'); 
     }
 
     /**
