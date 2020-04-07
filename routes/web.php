@@ -27,9 +27,5 @@ Route::group(['prefix' => 'office'], function(){
     Route::post('update/{id}', 'OfficeController@update')->name('office.update');
     Route::delete('destroy/{id}', 'OfficeController@destroy')->name('office.destroy');
 });
-//Route::resource('offices','OfficeController');
-//Route::post('offices/update/{id}','OfficeController@update')->name('offices.update');
-// Route::resource('offices','OfficeController')->only([
-//     'index','show','create','edit'
-// ]);
+
 
