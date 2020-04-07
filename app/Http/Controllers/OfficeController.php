@@ -26,8 +26,7 @@ class OfficeController extends Controller
      */
     public function create()
     {
-        return 'Office@cretaeです';
-
+        return view('office.create');
     }
 
     /**
