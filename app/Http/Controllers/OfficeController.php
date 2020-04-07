@@ -101,6 +101,9 @@ class OfficeController extends Controller
      */
     public function destroy($id)
     {
-        return 'offices@destroy/'.$id.'です';
+        $office = Office::find($id);
+        $office->delete();
+
+        return redirect('office/index');
     }
 }
