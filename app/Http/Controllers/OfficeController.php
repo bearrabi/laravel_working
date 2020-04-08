@@ -104,6 +104,7 @@ class OfficeController extends Controller
         $office = Office::find($id);
         $office->delete();
 
+        //return "deleteした";
         return redirect('office/index');
     }
 }

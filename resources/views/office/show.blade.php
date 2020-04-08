@@ -21,10 +21,10 @@
   </div>
   <div class="row">
     <a class="btn btn-primary" href="{{ action('OfficeController@edit', $office->id)}}">編集</a>
-    <form method="POST" action="action('OfficeController@destroy', $office->id)}">
+    <form id="delete" method="POST" action="{{ route('office.destroy', ['id' => $office->id])}}">
+    @csrf
       <input type="submit" class="btn btn-danger" value="削除" onClick="delete_alert(event); return false;">
     </form>
-    <!--<a class="btn btn-danger" href="{{ action('OfficeController@destroy', $office->id)}}">削除</a>-->
   </div>
 </div>
 @endsection
