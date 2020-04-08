@@ -13,9 +13,43 @@ class DepartmentsTableSeeder extends Seeder
     {
         //
         DB::table('departments')->insert([
-            'name' => 'kuma',
-            'email' => 'kumasanno@gmail.com',
-            'password' => Hash::make('kumasanno')
+            [
+                'office_id' => '1',
+                'name' => '営業部',
+            ],[
+                'office_id' => '1',
+                'name' => '経理部'
+            ],[
+                'office_id' => '1',
+                'name' => '総務部'
+            ],[
+                'office_id' => '1',
+                'name' => '技術部'
+            ],[
+                'office_id' => '2',
+                'name' => '営業部',
+            ],[
+                'office_id' => '2',
+                'name' => '経理部'
+            ],[
+                'office_id' => '2',
+                'name' => '総務部'
+            ],[
+                'office_id' => '2',
+                'name' => '技術部'
+            ],[
+                'office_id' => '3',
+                'name' => '営業部',
+            ],[
+                'office_id' => '3',
+                'name' => '経理部'
+            ],[
+                'office_id' => '3',
+                'name' => '総務部'
+            ],[
+                'office_id' => '3',
+                'name' => '技術部'
+            ]
         ]);
     }
 }
