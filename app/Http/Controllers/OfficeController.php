@@ -14,7 +14,9 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        return 'Office@indexです';
+        //
+        $offices = Office::all();
+        return view('office.index', compact('offices'));
     }
 
     /**
@@ -24,8 +26,7 @@ class OfficeController extends Controller
      */
     public function create()
     {
-        return 'Office@cretaeです';
-
+        return view('office.create');
     }
 
     /**
@@ -36,7 +37,15 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Office@store'.$request.'です';   
+        $office = new Office;
+        $office->company_id = 1;
+        $office->name = $request->input('office_name');
+        $office->post_number = $request->input('office_postnumber');
+        $office->address = $request->input('office_address');
+        $office->telnumber = $request->input('office_telnumber');
+        $office->save();
+
+        return redirect('office/index');
     }
 
     /**
@@ -48,8 +57,8 @@ class OfficeController extends Controller
     public function show($id)
     {
         //
-        $office_name = Office::find($id);
-        return $office_name->name.'です。';
+        $office = Office::find($id);
+        return view('office.show', compact('office'));
     }
 
     /**
@@ -60,7 +69,8 @@ class OfficeController extends Controller
      */
     public function edit($id)
     {
-        return 'Office@edit/'.$id.'です';
+        $office = Office::find($id);
+        return view('office.edit', compact('office'));
     }
 
     /**
@@ -72,7 +82,15 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'offces@update/'.$request.'/'.$id.'です';
+        $office = Office::find($id);
+
+        $office->name = $request->input('office_name');
+        $office->post_number = $request->input('office_postnumber');
+        $office->address = $request->input('office_address');
+        $office->telnumber = $request->input('office_telnumber');
+        $office->save();
+        
+        return redirect('office/index');
     }
 
     /**
@@ -83,6 +101,10 @@ class OfficeController extends Controller
      */
     public function destroy($id)
     {
-        return 'offices@destroy/'.$id.'です';
+        $office = Office::find($id);
+        $office->delete();
+
+        //return "deleteした";
+        return redirect('office/index');
     }
 }

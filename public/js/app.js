@@ -37126,3 +37126,11 @@ module.exports = __webpack_require__(/*! /var/www/html/working/resources/sass/ap
 /***/ })
 
 /******/ });
+
+function delete_alert(e){
+  if(!window.confirm('本当に削除しても大丈夫ですか？')){
+    window.alert('キャンセルしました');
+    return false;
+  }
+  document.deleteform.submit();
+};
