@@ -14,7 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $depatments = Depatment::all();
+        return view('depatment.index', compact('depatments'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('depatment.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $depatment = new Depatment;
+        $depatment->company_id = 1;
+        $depatment->name = $request->input('depatment_name');
+        $depatment->post_number = $request->input('depatment_postnumber');
+        $depatment->address = $request->input('depatment_address');
+        $depatment->telnumber = $request->input('depatment_telnumber');
+        $depatment->save();
+
+        return redirect('depatment/index');//
     }
 
     /**
@@ -46,7 +55,8 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $depatment = Depatment::find($id);
+        return view('depatment.show', compact('depatment'));
     }
 
     /**
@@ -57,7 +67,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $depatment = Depatment::find($id);
+        return view('depatment.edit', compact('depatment'));
     }
 
     /**
@@ -69,7 +80,15 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $depatment = Depatment::find($id);
+
+        $depatment->name = $request->input('depatment_name');
+        $depatment->post_number = $request->input('depatment_postnumber');
+        $depatment->address = $request->input('depatment_address');
+        $depatment->telnumber = $request->input('depatment_telnumber');
+        $depatment->save();
+        
+        return redirect('depatment/index');
     }
 
     /**
@@ -80,6 +99,9 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $depatment = Depatment::find($id);
+        $depatment->delete();
+
+        return redirect('depatment/index');
     }
 }
