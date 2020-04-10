@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Office extends Model
 {
-    public function offices(){
+    public function departments(){
         return $this->hasMany('App\Models\Department');
     }
 }
