@@ -15,18 +15,19 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $dep_all = Depatment::all();
+        $dep_all = Department::all();
 
-        $deps;
+        $deps = array();
         foreach($dep_all as $dep){
             $deps[] = array(
-                                'dep_id' => $dep->id,
-                                'office_name' =>  $dep->office->name,
-                                'dep_name' => $dep->name
+                            'dep_id' => $dep->id,
+                            'office_name' =>  $dep->office->name,
+                            'dep_name' => $dep->name
                             );
         }
-        dd($deps);
-        //return view('depatment.index', compact('deps'));
+
+        //dd($deps);
+        return view('depatment.index', compact('deps'));
     }
 
     /**
