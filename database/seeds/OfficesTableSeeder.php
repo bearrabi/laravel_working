@@ -25,6 +25,12 @@ class OfficesTableSeeder extends Seeder
                 'post_number' =>'789-1234',
                 'address' =>'rabi県usagi市ninnjin町5番地67',
                 'telnumber' => '09093939393',
+            ],[
+                'company_id' => 1,
+                'name' => 'タヌキ支社',
+                'post_number' =>'456-7890',
+                'address' =>'tanu県udon市kusa町2番地34',
+                'telnumber' => '09005050505',
             ]
         ]);
     }
