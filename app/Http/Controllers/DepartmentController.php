@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Department;
+use App\Models\Office;
 
 class DepartmentController extends Controller
 {
@@ -14,8 +15,18 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $depatments = Depatment::all();
-        return view('depatment.index', compact('depatments'));
+        $dep_all = Depatment::all();
+
+        $deps;
+        foreach($dep_all as $dep){
+            $deps[] = array(
+                                'dep_id' => $dep->id,
+                                'office_name' =>  $dep->office->name,
+                                'dep_name' => $dep->name
+                            );
+        }
+        dd($deps);
+        //return view('depatment.index', compact('deps'));
     }
 
     /**
