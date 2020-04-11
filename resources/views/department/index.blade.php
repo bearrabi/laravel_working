@@ -13,10 +13,15 @@
           <td>{{$dep['office_name']}}</td>
           <td>{{$dep['dep_name']}}</td>
           <td>
-            <a class="btn btn-primary" href="{{ action('DepartmentController@edit', $dep['dep_id'])}}">編集</a>
-            <form id="delete" method="POST" action="{{ route('department.destroy', ['id' => $dep['id']])}}">
-              @csrf
-            <input type="submit" class="btn btn-danger" value="削除" onClick="delete_alert(event); return false;">
+            <div class="container">
+            <div class="row">
+              <a class="btn btn-primary" href="{{ action('DepartmentController@edit', $dep['dep_id'])}}">編集</a>
+              <form id="delete" method="POST" action="{{ route('department.destroy', ['id' => $dep['dep_id']])}}">
+                @csrf
+                <input type="submit" class="btn btn-danger" value="削除" onClick="delete_alert(event); return false;">
+              </form>
+              </div>
+            </div>
           </td>
         </tr>
       @endforeach
