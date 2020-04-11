@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     public function department(){
-        return belongsTo('App\Models\Department');
+        return $this->belongsTo('App\Models\Department');
     }
 }
