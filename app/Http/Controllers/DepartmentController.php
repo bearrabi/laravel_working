@@ -40,7 +40,7 @@ class DepartmentController extends Controller
         
         //viewに渡すオフィス名の作成
         $off_names = array();
-        foreach($offices as $office){ $off_names[] = ['$office_name' => $office->name];  }
+        foreach($offices as $office){ $off_names[] = $office->name;  }
 
         return view('department.create', compact('off_names'));
     }
