@@ -27,8 +27,7 @@ class SectionController extends Controller
                             'sec_name' => $sec->name
                             );
         }
-        dd($sections);
-        //return view('section.index', compact('sections'));
+        return view('section.index', compact('sections'));
     }
 
     /**
