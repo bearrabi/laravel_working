@@ -75,8 +75,8 @@ class SectionController extends Controller
      */
     public function show($id)
     {
-        $dep = $this->GetSingleIdData($id);
-        return view('section.show', compact('dep'));
+        $sec = $this->GetSingleIdData($id);
+        return view('section.show', compact('sec'));
     }
 
     /**
@@ -130,12 +130,13 @@ class SectionController extends Controller
     //１行文のデータを取得して、viewに渡す形式に変換する
     private function GetSingleIdData($id){
 
-        $dep_row = Section::find($id);
-        $dep_view = [
-            'id' => $dep_row->id,
-            'office_name' => $dep_row->office->name,
-            'dep_name' => $dep_row->name,
+        $sec_row = Section::find($id);
+        $sec_view = [
+            'id' => $sec_row->id,
+            'office_name' => $sec_row->department->office->name,
+            'dep_name' => $sec_row->department->name,
+            'sec_name' => $sec_row->name
         ];
-        return $dep_view;
+        return $sec_view;
     }
 }
