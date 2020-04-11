@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Section;
 use App\Models\Department;
 use App\Models\Office;
 
-class DepartmentController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $dep_all = Department::all();
+        $dep_all = Section::all();
 
         $deps = array();
         foreach($dep_all as $dep){
@@ -25,7 +26,7 @@ class DepartmentController extends Controller
                             'dep_name' => $dep->name
                             );
         }
-        return view('department.index', compact('deps'));
+        return view('section.index', compact('deps'));
     }
 
     /**
@@ -42,7 +43,7 @@ class DepartmentController extends Controller
         $off_names = array();
         foreach($offices as $office){ $off_names[] = $office->name;  }
 
-        return view('department.create', compact('off_names'));
+        return view('section.create', compact('off_names'));
     }
 
     /**
@@ -57,12 +58,12 @@ class DepartmentController extends Controller
         $office = Office::where('name',$request->input('office_name'))->first();
 
         //officesテーブルへ挿入
-        $department = new Department;
-        $department->office_id = $office['id'];
-        $department->name = $request->input('dep_name');
-        $department->save();
+        $Section = new Section;
+        $Section->office_id = $office['id'];
+        $Section->name = $request->input('dep_name');
+        $Section->save();
 
-        return redirect('department/index');//
+        return redirect('section/index');//
     }
 
     /**
@@ -74,7 +75,7 @@ class DepartmentController extends Controller
     public function show($id)
     {
         $dep = $this->GetSingleIdData($id);
-        return view('department.show', compact('dep'));
+        return view('section.show', compact('dep'));
     }
 
     /**
@@ -86,7 +87,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         $dep = $this->GetSingleIdData($id);
-        return view('department.edit', compact('dep'));
+        return view('section.edit', compact('dep'));
     }
 
     /**
@@ -102,12 +103,12 @@ class DepartmentController extends Controller
          $office = Office::where('name',$request->input('office_name'))->first();
  
          //officesテーブルへ挿入
-         $department = Department::find($id);
-         $department->office_id = $office->id;
-         $department->name = $request->input('dep_name');
-         $department->save();
+         $Section = Section::find($id);
+         $Section->office_id = $office->id;
+         $Section->name = $request->input('dep_name');
+         $Section->save();
  
-         return redirect('department/index');
+         return redirect('section/index');
     }
 
     /**
@@ -118,17 +119,17 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $department = Department::find($id);
-        $department->delete();
+        $Section = Section::find($id);
+        $Section->delete();
 
-        return redirect('department/index');
+        return redirect('section/index');
     }
     
 
     //１行文のデータを取得して、viewに渡す形式に変換する
     private function GetSingleIdData($id){
 
-        $dep_row = Department::find($id);
+        $dep_row = Section::find($id);
         $dep_view = [
             'id' => $dep_row->id,
             'office_name' => $dep_row->office->name,
