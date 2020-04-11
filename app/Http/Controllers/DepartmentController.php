@@ -27,7 +27,7 @@ class DepartmentController extends Controller
         }
 
         //dd($deps);
-        return view('depatment.index', compact('deps'));
+        return view('department.index', compact('deps'));
     }
 
     /**
