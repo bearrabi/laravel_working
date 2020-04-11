@@ -9,4 +9,8 @@ class Department extends Model
     public function office(){
         return $this->belongsTo('App\Models\Office');
     }
+
+    public function sections(){
+        return $this->hasMany('App\Models\Section');
+    }
 }
