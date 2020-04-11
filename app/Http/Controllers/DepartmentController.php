@@ -35,7 +35,14 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('department.create');
+        //officesテーブルから全ての情報を取得
+        $offices = Office::all();
+        
+        //viewに渡すオフィス名の作成
+        $off_names = array();
+        foreach($offices as $office){ $off_names[] = ['$office_name' => $office->name];  }
+
+        return view('department.create', compact('off_names'));
     }
 
     /**
