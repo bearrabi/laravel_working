@@ -14,7 +14,7 @@
           @foreach($off_names as $off_name)
             <option value="{{$off_name}}">{{$off_name}}</option>
           @endforeach
-        </select>
+        </select><br><br>
         <label for="dep_name">部名</label>
         <input type="text" class="form-control txtbx" id="dep_name"><br><br>
       </div>
