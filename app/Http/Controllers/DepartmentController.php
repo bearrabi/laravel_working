@@ -55,7 +55,6 @@ class DepartmentController extends Controller
     {
         //viewから取得したoffice_nameからoffice_idを検索して格納
         $office = Office::where('name',$request->input('office_name'))->first();
-        //dd($office_id);
 
         //officesテーブルへ挿入
         $department = new Department;
@@ -99,15 +98,16 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $department = Department::find($id);
-
-        $department->name = $request->input('department_name');
-        $department->post_number = $request->input('department_postnumber');
-        $department->address = $request->input('department_address');
-        $department->telnumber = $request->input('department_telnumber');
-        $department->save();
-        
-        return redirect('department/index');
+         //viewから取得したoffice_nameからoffice_idを検索して格納
+         $office = Office::where('name',$request->input('office_name'))->first();
+ 
+         //officesテーブルへ挿入
+         $department = Department::find($id);
+         $department->office_id = $office->id;
+         $department->name = $request->input('dep_name');
+         $department->save();
+ 
+         return redirect('department/index');
     }
 
     /**
