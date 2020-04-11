@@ -48,7 +48,7 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $department = new department;
+        $department = new Department;
         $department->company_id = 1;
         $department->name = $request->input('department_name');
         $department->post_number = $request->input('department_postnumber');
@@ -67,12 +67,7 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        $department = department::find($id);
-        $dep = [
-                'id' => $id,
-                'office_name' => $department->office->name,
-                'dep_name' => $department->name
-        ];
+        $dep = GetSingleIdData($id);
         return view('department.show', compact('dep'));
     }
 
@@ -84,8 +79,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $department = department::find($id);
-        return view('department.edit', compact('department'));
+        $dep = GetSingleIdData($id);
+        return view('department.edit', compact('dep'));
     }
 
     /**
@@ -97,7 +92,7 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $department = department::find($id);
+        $department = Department::find($id);
 
         $department->name = $request->input('department_name');
         $department->post_number = $request->input('department_postnumber');
@@ -116,9 +111,21 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $department = department::find($id);
+        $department = Department::find($id);
         $department->delete();
 
         return redirect('department/index');
+    }
+
+    //１行文のデータを取得して、viewに渡す形式に変換する
+    private function GetSingleIdData($id){
+
+        $dep_row = Department::find($id);
+        $dep_view = [
+            'id' => $dep_row->id,
+            'office_name' => $dep_row->office->name,
+            'dep_name' => $dep_row->name,
+        ];
+        return $dep_view;
     }
 }
