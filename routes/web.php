@@ -36,5 +36,14 @@ Route::group(['prefix' => 'department'], function(){
     Route::post('update/{id}', 'DepartmentController@update')->name('department.update');
     Route::post('destroy/{id}', 'DepartmentController@destroy')->name('department.destroy');
 });
+Route::group(['prefix' => 'section'], function(){
+    Route::get('index', 'SectionController@index')->name('section.index');
+    Route::get('create', 'SectionController@create')->name('section.create');
+    Route::post('store', 'SectionController@store')->name('section.store');
+    Route::get('show/{id}', 'SectionController@show')->name('section.show');
+    Route::get('edit/{id}', 'SectionController@edit')->name('section.edit');
+    Route::post('update/{id}', 'SectionController@update')->name('section.update');
+    Route::post('destroy/{id}', 'SectionController@destroy')->name('section.destroy');
+});
 
 
