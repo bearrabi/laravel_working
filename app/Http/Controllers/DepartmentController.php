@@ -79,7 +79,7 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $dep = GetSingleIdData($id);
+        $dep = $this->GetSingleIdData($id);
         return view('department.edit', compact('dep'));
     }
 
