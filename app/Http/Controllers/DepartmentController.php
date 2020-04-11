@@ -67,7 +67,7 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        $dep = GetSingleIdData($id);
+        $dep = $this->GetSingleIdData($id);
         return view('department.show', compact('dep'));
     }
 
@@ -117,6 +117,7 @@ class DepartmentController extends Controller
         return redirect('department/index');
     }
 
+    
     //１行文のデータを取得して、viewに渡す形式に変換する
     private function GetSingleIdData($id){
 
