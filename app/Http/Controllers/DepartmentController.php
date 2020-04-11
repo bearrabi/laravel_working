@@ -37,7 +37,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('depatment.create');
+        return view('department.create');
     }
 
     /**
@@ -48,15 +48,15 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $depatment = new Depatment;
-        $depatment->company_id = 1;
-        $depatment->name = $request->input('depatment_name');
-        $depatment->post_number = $request->input('depatment_postnumber');
-        $depatment->address = $request->input('depatment_address');
-        $depatment->telnumber = $request->input('depatment_telnumber');
-        $depatment->save();
+        $department = new department;
+        $department->company_id = 1;
+        $department->name = $request->input('department_name');
+        $department->post_number = $request->input('department_postnumber');
+        $department->address = $request->input('department_address');
+        $department->telnumber = $request->input('department_telnumber');
+        $department->save();
 
-        return redirect('depatment/index');//
+        return redirect('department/index');//
     }
 
     /**
@@ -67,8 +67,13 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        $depatment = Depatment::find($id);
-        return view('depatment.show', compact('depatment'));
+        $department = department::find($id);
+        $dep = [
+                'id' => $id,
+                'office_name' => $department->office->name,
+                'dep_name' => $department->name
+        ];
+        return view('department.show', compact('dep'));
     }
 
     /**
@@ -79,8 +84,8 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        $depatment = Depatment::find($id);
-        return view('depatment.edit', compact('depatment'));
+        $department = department::find($id);
+        return view('department.edit', compact('department'));
     }
 
     /**
@@ -92,15 +97,15 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $depatment = Depatment::find($id);
+        $department = department::find($id);
 
-        $depatment->name = $request->input('depatment_name');
-        $depatment->post_number = $request->input('depatment_postnumber');
-        $depatment->address = $request->input('depatment_address');
-        $depatment->telnumber = $request->input('depatment_telnumber');
-        $depatment->save();
+        $department->name = $request->input('department_name');
+        $department->post_number = $request->input('department_postnumber');
+        $department->address = $request->input('department_address');
+        $department->telnumber = $request->input('department_telnumber');
+        $department->save();
         
-        return redirect('depatment/index');
+        return redirect('department/index');
     }
 
     /**
@@ -111,9 +116,9 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $depatment = Depatment::find($id);
-        $depatment->delete();
+        $department = department::find($id);
+        $department->delete();
 
-        return redirect('depatment/index');
+        return redirect('department/index');
     }
 }
