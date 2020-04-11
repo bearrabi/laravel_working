@@ -9,7 +9,7 @@
     <form>
       <div class="form-group">
         <label for="office_name">事業所名</label>
-        <input name="office_name" type="text" class="form-control txtbx" id="office_name" value="{{$sep['office_name']}}" readonly><br><br>
+        <input name="office_name" type="text" class="form-control txtbx" id="office_name" value="{{$sec['office_name']}}" readonly><br><br>
         <label for="dep_name">部名</label>
         <input name="dep_name" type="text" class="form-control txtbx" id="dep_name" value="{{$sec['dep_name']}}" readonly><br><br>
         <label for="sec_name">課名</label>
@@ -18,8 +18,8 @@
     </form>
   </div>
   <div class="row">
-    <a class="btn btn-primary" href="{{ action('SectionController@edit', $sec['sec_id'])}}">編集</a>
-    <form id="delete" method="POST" action="{{ route('section.destroy', ['id' => $sec['sec_id']])}}">
+    <a class="btn btn-primary" href="{{ action('SectionController@edit', $sec['id'])}}">編集</a>
+    <form id="delete" method="POST" action="{{ route('section.destroy', ['id' => $sec['id']])}}">
     @csrf
       <input type="submit" class="btn btn-danger" value="削除" onClick="delete_alert(event); return false;">
     </form>
