@@ -16,17 +16,19 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $dep_all = Section::all();
+        $sec_all = Section::all();
 
-        $deps = array();
-        foreach($dep_all as $dep){
-            $deps[] = array(
-                            'dep_id' => $dep->id,
-                            'office_name' =>  $dep->office->name,
-                            'dep_name' => $dep->name
+        $sections = array();
+        foreach($sec_all as $sec){
+            $sections[] = array(
+                            'sec_id' => $sec->id,
+                            'office_name' =>  $sec->department->office->name,
+                            'dep_name' => $sec->department->name,
+                            'sec_name' => $sec->name
                             );
         }
-        return view('section.index', compact('deps'));
+        dd($sections);
+        //return view('section.index', compact('sections'));
     }
 
     /**
