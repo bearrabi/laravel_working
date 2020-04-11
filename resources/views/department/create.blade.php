@@ -16,7 +16,7 @@
           @endforeach
         </select><br><br>
         <label for="dep_name">部名</label>
-        <input type="text" class="form-control txtbx" id="dep_name"><br><br>
+        <input type="text" class="form-control txtbx" id="dep_name">部<br><br>
       </div>
       </div>
       <input class="btn btn-info" type="submit" value="登録">
