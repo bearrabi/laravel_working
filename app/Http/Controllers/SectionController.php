@@ -139,8 +139,8 @@ class SectionController extends Controller
      */
     public function destroy($id)
     {
-        $Section = Section::find($id);
-        $Section->delete();
+        $section = Section::find($id);
+        $section->delete();
 
         return redirect('section/index');
     }
