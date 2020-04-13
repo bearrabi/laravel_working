@@ -48,7 +48,11 @@ class SectionController extends Controller
         //viewに渡す部名の作成
         $departments = Department::all();
         $dep_names = array();
-        foreach($departments as $dep){  $dep_names[] = $dep->name;  }
+        foreach($departments as $dep){  
+            if( !in_array($dep->name, $dep_names)){
+                $dep_names[] = $dep->name;  
+            }
+        }
         return view('section.create', compact('off_names', 'dep_names'));
     }
 
