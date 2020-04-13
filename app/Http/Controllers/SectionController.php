@@ -102,8 +102,8 @@ class SectionController extends Controller
      */
     public function edit($id)
     {
-        $dep = $this->GetSingleIdData($id);
-        return view('section.edit', compact('dep'));
+        $sec = $this->GetSingleIdData($id);
+        return view('section.edit', compact('sec'));
     }
 
     /**
@@ -116,13 +116,17 @@ class SectionController extends Controller
     public function update(Request $request, $id)
     {
          //viewから取得したoffice_nameからoffice_idを検索して格納
-         $office = Office::where('name',$request->input('office_name'))->first();
- 
-         //officesテーブルへ挿入
-         $Section = Section::find($id);
-         $Section->office_id = $office->id;
-         $Section->name = $request->input('dep_name');
-         $Section->save();
+         $office_id = Office::where('name',$request->input('office_name'))->first()->id;
+         $dep_id = Department::where('name',$request->input('dep_name'))
+                             ->where('office_id',$office_id)
+                             ->first()
+                             ->id;
+
+         //sectionテーブルの更新
+         $section = Section::find($id);
+         $section->department_id = $dep_id;
+         $section->name = $request->input('sec_name');
+         $section->save();
  
          return redirect('section/index');
     }
