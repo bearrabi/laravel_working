@@ -12,9 +12,34 @@ class SectionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('sections')->insert([
-            'name' => 'kuma',
-            'email' => 'kumasanno@gmail.com',
-            'password' => Hash::make('kumasanno')
+            [
+                'department_id' => '1',
+                'name' => '一課'
+            ],[
+                'department_id' => '1',
+                'name' => '二課'
+            ],[
+                'department_id' => '1',
+                'name' => '三課'
+            ],[
+                'department_id' => '2',
+                'name' => '一課'
+            ],[
+                'department_id' => '2',
+                'name' => '二課'
+            ],[
+                'department_id' => '2',
+                'name' => '三課'
+            ],[
+                'department_id' => '3',
+                'name' => '一課'
+            ],[
+                'department_id' => '3',
+                'name' => '二課'
+            ],[
+                'department_id' => '3',
+                'name' => '三課'
+            ]
         ]);
     }
 }
