@@ -6,7 +6,7 @@
 </style>
 <div class="container">
   <div class="row">
-    <form method="POST" action="{{ route('department.store') }}">
+    <form method="POST" action="{{ route('office.store') }}">
     @csrf
       <div class="form-group">
         <label for="office_name">事業所名</label>
