@@ -38,13 +38,18 @@ class SectionController extends Controller
     public function create()
     {
         //officesテーブルから全ての情報を取得
-        $offices = Office::all();
+        $sections = Section::all();
         
-        //viewに渡すオフィス名の作成
+        //viewに渡す事業所名
+        $offices = Office::all();
         $off_names = array();
         foreach($offices as $office){ $off_names[] = $office->name;  }
 
-        return view('section.create', compact('off_names'));
+        //viewに渡す部名の作成
+        $departments = Department::all();
+        $dep_names = array();
+        foreach($departments as $dep){  $dep_names[] = $dep->name;  }
+        return view('section.create', compact('off_names', 'dep_names'));
     }
 
     /**
