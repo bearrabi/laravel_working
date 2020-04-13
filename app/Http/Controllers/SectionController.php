@@ -66,14 +66,20 @@ class SectionController extends Controller
     {
         //viewから取得したoffice_nameからoffice_idを検索して格納
         $office = Office::where('name',$request->input('office_name'))->first();
+        
+        $department = Department::where('name',$request->input('dep_name'))
+                                ->where('office_id', $office->id)
+                                ->first();
 
+        
         //officesテーブルへ挿入
-        $Section = new Section;
-        $Section->office_id = $office['id'];
-        $Section->name = $request->input('dep_name');
-        $Section->save();
-
-        return redirect('section/index');//
+        $section = new Section;
+        $section->department_id = $department->id;
+        $section->name = $request->input('sec_name');
+        $section->save();
+        
+        //dd($section);
+        return redirect('section/index');
     }
 
     /**
